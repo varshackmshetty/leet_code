@@ -1,18 +1,19 @@
 class Solution {
     public int dominantIndex(int[] nums) {
-    int ans = 0;
     int max = 0;
-    int secondMax = 0;
+    int max_second = 0;
+    int value = 0;
+
 
     for (int i = 0; i < nums.length; ++i)
       if (nums[i] > max) {
-        secondMax = max;
+        max_second = max;
         max = nums[i];
-        ans = i;
-      } else if (nums[i] > secondMax) {
-        secondMax = nums[i];
+        value = i;
+      } else if (nums[i] > max_second) {
+        max_second = nums[i];
       }
 
-    return max >= 2 * secondMax ? ans : -1;
+    return max >= 2 * max_second ? value : -1;
   }
-}
+};
